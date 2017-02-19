@@ -68,5 +68,13 @@
 		<h:outputText value="Voce selecionou o estado civil: #{bbean.estCivil.label}" rendered="#{bbean.estCivil ne null}"/><br/>
 		<h:commandButton actionListener="#{bbean.selecioneEstCivil}" value="Enviar"/>
 	</h:form>
+	<h3>7. Campos select com Map</h3>
+	<h:form id="form7">
+		<h:outputLabel value="Estados Brasileiros" for="estadosBR"/>
+		<h:selectOneMenu value="#{bbean.estadoSelecionado}" id="estadosBR">
+			<f:selectItem itemValue="#{null}" itemLabel="selecione o estado" />
+			<f:selectItems value="#{bbean.estados.entrySet()}" var="estado" itemValue="#{estado.key}" itemLabel="#{estado.value}"/>
+		</h:selectOneMenu><br/>
+	</h:form>
 </h:body>
 </html>

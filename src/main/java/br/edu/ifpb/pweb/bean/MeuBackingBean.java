@@ -1,5 +1,8 @@
 package br.edu.ifpb.pweb.bean;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -20,13 +23,43 @@ public class MeuBackingBean {
 	private String nomeCidade;
 	private Integer cidade;
 	private EstadoCivilEnum estCivil;
-	
-	private String[] cidades = {
-			"João Pessoa",
-			"Campina Grande",
-			"Taperoá",
-			"Soledade",
-			"Juazeirinho"};
+	private String estadoSelecionado;
+
+	private String[] cidades = { "João Pessoa", "Campina Grande", "Taperoá", "Soledade", "Juazeirinho" };
+
+	private Map<String, String> estados;
+
+	public MeuBackingBean(){
+		this.estados = new HashMap<String, String>();
+		estados.put("AC","Acre");  
+		estados.put("AL","Alagoas");  
+		estados.put("AM","Amazonas");  
+		estados.put("AP","Amapá");  
+		estados.put("BA","Bahia");  
+		estados.put("CE","Ceará");  
+		estados.put("DF","Distrito Federal");  
+		estados.put("ES","Espirito Santo");  
+		estados.put("GO","Goias");  
+		estados.put("MA","Maranhão");  
+		estados.put("MG","Minas Gerais");  
+		estados.put("MS","Mato Grosso Sul");  
+		estados.put("MT","Mato Grosso");  
+	    estados.put("MT","Mato Grosso");  
+	    estados.put("PA","Pará");  
+	    estados.put("PB","Paraiba");  
+	    estados.put("PE","Pernanbuco");  
+	    estados.put("PI","Piaui");  
+	    estados.put("PR","Parana");  
+	    estados.put("RJ","Rio de Janeiro");  
+	    estados.put("RN","Rio Grande do Norte");  
+	    estados.put("RO","Rondônia");  
+	    estados.put("RR","Roraima");  
+	    estados.put("RS","Rio Grande do Sul");  
+	    estados.put("SC","Santa Catarina");  
+	    estados.put("SE","Sergipe");  
+	    estados.put("SP","São Paulo");  
+	    estados.put("TO","Tocantins");
+	}
 
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
@@ -125,10 +158,10 @@ public class MeuBackingBean {
 	public void setCidades(String[] cidades) {
 		this.cidades = cidades;
 	}
-	
+
 	public void selecioneCidade(ActionEvent e) {
-		if(cidade!= null) {
-			this.nomeCidade= cidades[cidade];
+		if (cidade != null) {
+			this.nomeCidade = cidades[cidade];
 		}
 	}
 
@@ -139,12 +172,29 @@ public class MeuBackingBean {
 	public void setEstCivil(EstadoCivilEnum estCivil) {
 		this.estCivil = estCivil;
 	}
-	
+
 	public EstadoCivilEnum[] getEstadosCivis() {
 		return EstadoCivilEnum.values();
 	}
-	
+
 	public void selecioneEstCivil(ActionEvent e) {
-		//vazio!
+		// vazio!
 	}
+
+	public Map<String, String> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(Map<String, String> estados) {
+		this.estados = estados;
+	}
+
+	public String getEstadoSelecionado() {
+		return estadoSelecionado;
+	}
+
+	public void setEstadoSelecionado(String estadoSelecionado) {
+		this.estadoSelecionado = estadoSelecionado;
+	}
+	
 }
